@@ -66,4 +66,57 @@ docker run -p 4000:8000 -d us-central1-docker.pkg.dev/$PROJECT_ID/thoi-repo/thoi
 curl http://localhost:4000
 ```
 
+---
+# Task 4. Create and expose a deployment in Kubernetes
+
+Create the <deployment.yaml> and <service.yaml> to deploy your new `container image` to a `Kubernetes cluster`.
+
+1. Get the Kubernetes credentials before you deploy the image onto the Kubernetes cluster.
+
+2. Before you create the deployments, make sure you check the deployment.yaml file
+
+3. Create the deployments from the deployment.yaml and service.yaml files.
+
+4. From the Navigation Menu, select Kubernetes Engine > Services & Ingress. Click on the load balancer IP Address of the deployed service to verify your services are up and running.
+
+## Setup et Requirements 
+`gcloud auth list`
+
+`gcloud config list project`
+
+## Set a default compute zone
+
+1. Set the default compute region
+
+2. Set the default compute zone 
+
+
+
+## Create a GKE cluster
+
+
+
+
+## Get authentication credentials for the cluster
+`gcloud container clusters get-credentials lab-cluster `
+
+
+
+## Deploy an application to the cluster
+
++ create a new Deployment
+
+    `kubectl create deployment hello-server --image=gcr.io/google-samples/hello-app:1.0`
+
++ Create a Kubernetes Service, which is a Kubernetes resource that lets you expose your application to external traffic
+    `kubectl expose deployment hello-server --type=LoadBalancer --port 8080`
+
+## Deleting the cluster
+
+`gcloud container clusters delete lab-cluster `
+
+
+
+
+
 
