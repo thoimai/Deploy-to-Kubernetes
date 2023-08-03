@@ -4,20 +4,17 @@ Simple project demonstrates how to deploy a containerized application to kuberne
 # Task 1. Create a Docker image and store the Dockerfile
 
 
+## Publish 
 
-
-
-> Publish 
-
-# Push docker image to private artifact registry
+Push docker image to private artifact registry
 
 Now you're going to push your image to the Google Artifact Registry. After that you'll remove all containers and images to simulate a fresh environment, and then pull and run your containers. This will demonstrate the portability of Docker containers.
 
 To push images to your private registry hosted by Artifact Registry, you need to tag the images with a registry name. The format is <regional-repository>-docker.pkg.dev/my-project/my-repo/my-image.
 
-> Create the target Docker repository
+## Create the target Docker repository
 
-> Configure authentication 
+## Configure authentication 
 
 Use these commands with the Docker client to pull the image. To use these commands, your Docker client must be configured to authenticate with us-central1-docker.pkg.dev. If this is the first time that you are pulling an image from us-central1-docker.pkg.dev with your Docker client, run the following command on the machine where Docker is installed.
 
@@ -25,7 +22,7 @@ Use these commands with the Docker client to pull the image. To use these comman
 gcloud auth configure-docker us-central1-docker.pkg.dev
 ```
 
-> Push the container to Artifact Registry
+## Push the container to Artifact Registry
 
 + Set Project ID 
 `export PROJECT_ID=$(gcloud config get-value project)`
@@ -42,7 +39,7 @@ docker build -t us-central1-docker.pkg.dev/$PROJECT_ID/thoi-repo/thoi-app:0.2 .
 docker push us-central1-docker.pkg.dev/$PROJECT_ID/thoi-repo/thoi-app:0.2
 ```
 
-> Test the image
+## Test the image
 
 1. Stop and remove all containers:
 
