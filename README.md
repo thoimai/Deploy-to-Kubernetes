@@ -5,7 +5,7 @@ Simple project demonstrates how to deploy a containerized application to kuberne
 
 
 
-# Task 1. Create a Docker image and store the Dockerfile
+# Task 1. Create a Docker image and store the Dockerfile | Done
 
 
 ## Publish 
@@ -71,7 +71,7 @@ curl http://localhost:4000
 ```
 
 ---
-# Task 4. Create and expose a deployment in Kubernetes
+# Task 4. Create and expose a deployment in Kubernetes | In-progress
 
 Create the <deployment.yaml> and <service.yaml> to deploy your new `container image` to a `Kubernetes cluster`.
 
@@ -83,23 +83,30 @@ Create the <deployment.yaml> and <service.yaml> to deploy your new `container im
 
 4. From the Navigation Menu, select Kubernetes Engine > Services & Ingress. Click on the load balancer IP Address of the deployed service to verify your services are up and running.
 
-## Setup et Requirements 
-`gcloud auth list`
+## Setup and Requirements 
 
-`gcloud config list project`
+* List the active account name 
+ 
+    `gcloud auth list`
+
+*  List the project ID
+    
+    `gcloud config list project`
 
 ## Set a default compute zone
 
 1. Set the default compute region
-gcloud config set compute/region us-central1
 
-2. Set the default compute zone 
-gcloud config set compute/zone us-central1-a
+    `gcloud config set compute/region us-central1`
+
+2. Set the default compute zone
+
+    `gcloud config set compute/zone us-central1-a`
 
 
 ## Create a GKE cluster
 
-gcloud container clusters create --machine-type=e2-medium --zone=us-central1-a thoi-cluster 
+    gcloud container clusters create --machine-type=e2-medium --zone=us-central1-a thoi-cluster 
 
 
 ## Get authentication credentials for the cluster
@@ -115,7 +122,7 @@ gcloud container clusters create --machine-type=e2-medium --zone=us-central1-a t
     `kubectl create deployment hello-server --image=gcr.io/google-samples/hello-app:1.0`
 
 + Deployment Manifest 
-    > Auto generated yaml deployment manifest by GKE on GCP 
+    > Auto generated yaml deployment manifest by GKE engine
 
 ```yaml 
 ---
@@ -164,15 +171,15 @@ spec:
 
 + Container image
 
-`us-central1-docker.pkg.dev/deploy-to-kubernetes-9999/thoi-repo/thoi-app:0.3`
+    `us-central1-docker.pkg.dev/deploy-to-kubernetes-9999/thoi-repo/thoi-app:0.3`
 
 + Create a Kubernetes Service, which is a Kubernetes resource that lets you expose your application to external traffic
+    
     `kubectl expose deployment hello-server --type=LoadBalancer --port 8080`
 
 ## Deleting the cluster
 
-
-    `gcloud container clusters delete lab-cluster `
+    gcloud container clusters delete lab-cluster
 
 
 
